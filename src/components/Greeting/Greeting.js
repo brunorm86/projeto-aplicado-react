@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 /**
  * Recapitulando:
@@ -9,17 +9,46 @@ import PropTypes from "prop-types";
  * Esta é a forma mais comum de se utilizar valor padrão
  * para props.
  */
-export const Greeting = ({ name, lastName }) => {
+export const Greeting = ({ name = '', lastName, isLoading = false, setIsLoading }) => {
   // outra forma de destructuring (recebendo um objeto 'props' como argumento)
   // const { name, lastName} = props
   //
   // Também pode-se passar valor padrão para as props:
   // const { name = "fulano", lastName="da silva"} = props
 
+  if (isLoading) {
+    return <div> loading...</div>;
+  }
+
   return (
-    <h1>
-      Olá, {name} {lastName}!
-    </h1>
+    <>
+      {/* Condicional com ternário
+      {lastName ? (
+        <h1>
+          Olá, {name} {lastName}!
+        </h1>
+      ) : (
+        <h1>{name}</h1>
+      )} */}
+
+      {/* Condicional
+      {(lastName && name) && (
+        <h1>
+          Olá, {name} {lastName}!
+        </h1>
+      )} */}
+
+      {/* condicional na função */}
+      {/* <h1>
+        Olá, {name} {lastName && lastName}!
+      </h1> */}
+
+      <h1>
+        Olá, {name} {lastName}!
+      </h1>
+
+      <button onClick={setIsLoading}>Click</button>
+    </>
   );
 };
 
@@ -31,8 +60,8 @@ export const Greeting = ({ name, lastName }) => {
  * padrão passados diretamente no destructuring.
  */
 Greeting.defaultProps = {
-  name: "fulano",
-  lastName: "da silva",
+  name: 'fulano',
+  // lastName: 'da silva',
 };
 
 /**
@@ -40,5 +69,5 @@ Greeting.defaultProps = {
  */
 Greeting.propTypes = {
   name: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
+  lastName: PropTypes.string,
 };
