@@ -1,0 +1,34 @@
+.card {
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  color: #436147;
+  text-align: center;
+}
+
+.card__spec-title {
+  font-size: 0.75rem;
+  color: #333;
+  display: block;
+}
+
+.card__spec-value {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.card__spec-value--fire {
+  color: #ff8744;
+}
+
+.card__spec-value--rock {
+  color: #727272;
+}
+
+.card__spec-value--grass {
+  color: #727272;
+}
