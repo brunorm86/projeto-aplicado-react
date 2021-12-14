@@ -49,15 +49,21 @@ export const Estado = () => {
         <h4>Ficha cadastral</h4>
         {/* 
             Deve possuir dois estados. 
-            - O primeiro deverá guardar um objto "pessoa", e deve iniciar como null.
-
+            - O primeiro vai guardar um objeto "pessoa", e deve iniciar como null.
             - O segundo será responsável pela exibição das informações na tela, e deve
             ter um dos seguintes valores string: 'idle', 'loading' ou 'success'. O estado
-            inicial deve ser 'idle'. Ao clicar em "Carregar dados", o estado deve mudar para
+            inicial deve ser 'idle'. 
+            -Ao clicar em "Carregar dados", o estado deve mudar para
             'loading'. Quando os dados forem carregados, o estado deve mudar para 'success'.
+            - Use a função assíncrona "buscarDados()". Ela retornará um objeto "pessoa"
          */}
-        {"idle" && <p>Nenhum dado a ser exibido.</p>}
-        {"loading" && <button onClick={handleFetchPerson}>Carregar dados do usuário</button>}
+        {"idle" && (
+          <>
+            <p>Nenhum dado a ser exibido.</p>
+            <button onClick={handleFetchPerson}>Carregar dados do usuário</button>
+          </>
+        )}
+        {"loading" && <p>Carregando dados. Aguarde...</p>}
         {"success" && (
           <div>
             <p>Nome: {"pessoa.nome"}</p>
