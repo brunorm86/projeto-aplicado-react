@@ -2,8 +2,8 @@
   padding: 2rem;
 }
 .item {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
