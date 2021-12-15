@@ -47,6 +47,9 @@ export const EfeitoC = () => {
     const jogosFiltrados = filterGamesByTitle(allGames, searchTerm);
     setFilteredGames(jogosFiltrados);
   }, [searchTerm]);
+  // ... await fetchGames()
+  // ... filterGamesByTitle(listaOriginal, termoBusca)
+  // -----------------------------------
 
   const handleSearchInput = (value) => {
     setsearchTerm(value);
