@@ -1,3 +1,4 @@
+import { useEffect } from "react/cjs/react.development";
 import styles from "./Card.module.css";
 
 const COLOR_MAP = {
@@ -8,7 +9,13 @@ const COLOR_MAP = {
 };
 
 export const Card = ({ pokemon }) => {
-  console.log(styles);
+  useEffect(() => {
+    console.log("Card do pokemon " + pokemon.name);
+
+    return () => {
+      console.log("Desmontagem do pokemon " + pokemon.name);
+    };
+  }, []);
 
   return (
     <div className={styles["card"]} key={pokemon.id}>

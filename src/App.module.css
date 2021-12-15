@@ -16,3 +16,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
+
+.searchInput {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
