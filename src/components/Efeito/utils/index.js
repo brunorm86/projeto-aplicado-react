@@ -27,5 +27,5 @@ export function fetchGames() {
 }
 
 export function filterGamesByTitle(list, term) {
-  return new RegExp(term, "ig").test(list.title);
+  return list.filter((item) => new RegExp(term, "ig").test(item.title));
 }

@@ -28,16 +28,28 @@ import { fetchGames, filterGamesByTitle } from "./utils";
  */
 
 export const EfeitoC = () => {
-  const allGames = [];
-  const filteredGames = [];
-  const searchTerm = "";
+  const [allGames, setallGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
+  const [searchTerm, setsearchTerm] = useState("");
 
   // IMPLEMENTE AQUI -------------------
-  // ... await fetchGames()
-  // ... filterGamesByTitle(listaOriginal, termoBusca)
-  // -----------------------------------
+  const buscarJogos = async () => {
+    const listaDeJogos = await fetchGames();
+    setallGames(listaDeJogos);
+    setFilteredGames(listaDeJogos);
+  };
+
+  useEffect(() => {
+    buscarJogos();
+  }, []);
+
+  useEffect(() => {
+    const jogosFiltrados = filterGamesByTitle(allGames, searchTerm);
+    setFilteredGames(jogosFiltrados);
+  }, [searchTerm]);
 
   const handleSearchInput = (value) => {
+    setsearchTerm(value);
     // ???
   };
 

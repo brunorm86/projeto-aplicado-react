@@ -20,18 +20,19 @@ import { getTimestamp, sendToLogger } from "./utils";
  *
  */
 export const EfeitoA = () => {
-  const text = "";
+  const [text, setText] = useState("");
 
   // IMPLEMENTE AQUI -------------------
 
-  // getTimestamp()
-  // sendToLogger()
-  // loggerObj = { timestamp: '', text: ''}
-  // -----------------------------------
+  useEffect(() => {
+    const log = { timestamp: getTimestamp(), text: text };
+    sendToLogger(log);
+  });
 
   const handleTextInput = (value) => {
-    // ???
+    setText(value);
   };
+  // -----------------------------------
 
   return (
     <div className={styles.container}>

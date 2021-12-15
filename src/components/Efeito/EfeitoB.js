@@ -17,15 +17,26 @@ import styles from "./styles.module.css";
  *
  */
 export const EfeitoB = () => {
-  const posts = [];
+  const [posts, setPosts] = useState([]);
 
   // IMPLEMENTE AQUI -------------------
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((valor) => valor.json())
+      .then((valorProcessado) => setPosts(valorProcessado));
+  }, []);
 
   // -----------------------------------
+
+  // const sortear = () => {
+  //   const numero = Math.floor(Math.random() * 24);
+  //   console.log("O aluno sorteado é o de numero", numero);
+  // };
 
   if (posts.length === 0) {
     return (
       <div className={styles.container}>
+        {/* <button onClick={sortear}>Sortear!</button> */}
         <h2>Nenhum post para ser exibido</h2>
       </div>
     );
@@ -37,7 +48,9 @@ export const EfeitoB = () => {
         <h2>Todos os {posts.length} posts</h2>
         <ul className={styles.postList}>
           {posts.map((post) => (
-            <li className={styles.postItem}>{post.title}</li>
+            <li key={post.id} className={styles.postItem}>
+              {post.title}
+            </li>
           ))}
         </ul>
       </div>
