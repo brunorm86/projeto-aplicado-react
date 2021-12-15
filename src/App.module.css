@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  max-width: 960px;
+
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 1rem;
+  font-weight: lighter;
+  margin: 1rem 0;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.searchInput {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
