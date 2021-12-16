@@ -20,20 +20,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect filter");
-    /**
-     * Algoritmo de busca através de RegExp (Regular Expression)
-     * A class RegExp recebe uma string como primeiro argumento e transforma
-     * a string em uma expressão regular. O método ".test( )" recebe uma string
-     * como argumento e testa se essa string satisfaz a expressão regular à esquerda,
-     * e retorna um booleano (true, caso positivo, e false, caso negativo)
-     */
     const listaFiltrada = pokemons.filter((pokemon) => {
       return new RegExp(termoBusca, "ig").test(pokemon.name);
     });
-    /**
-     * By Tio Mika :)
-     */
     setPokemonsFiltrados(listaFiltrada);
   }, [termoBusca]);
 
