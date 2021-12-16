@@ -28,14 +28,14 @@ import { fetchGames, filterGamesByTitle } from "./utils";
  */
 
 export const EfeitoC = () => {
-  const [allGames, setallGames] = useState([]);
+  const [allGames, setAllGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]);
   const [searchTerm, setsearchTerm] = useState("");
 
   // IMPLEMENTE AQUI -------------------
   const buscarJogos = async () => {
     const listaDeJogos = await fetchGames();
-    setallGames(listaDeJogos);
+    setAllGames(listaDeJogos);
     setFilteredGames(listaDeJogos);
   };
 
@@ -47,13 +47,10 @@ export const EfeitoC = () => {
     const jogosFiltrados = filterGamesByTitle(allGames, searchTerm);
     setFilteredGames(jogosFiltrados);
   }, [searchTerm]);
-  // ... await fetchGames()
-  // ... filterGamesByTitle(listaOriginal, termoBusca)
   // -----------------------------------
 
   const handleSearchInput = (value) => {
     setsearchTerm(value);
-    // ???
   };
 
   return (
@@ -68,7 +65,7 @@ export const EfeitoC = () => {
             onChange={(event) => handleSearchInput(event.target.value)}
           />
         </div>
-        {filteredGames.length === 0 ? (
+        {filteredGames.length === allGames.length ? (
           <h2>Todos os {allGames.length} jogos</h2>
         ) : (
           <h2>
