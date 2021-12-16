@@ -1,10 +1,10 @@
-import React from "react";
+import styles from "./GameCard.module.css";
 
 export const GameCard = ({ game }) => {
   return (
-    <div>
-      <h3>{game.title}</h3>
-      <span>{game.platform}</span>
+    <div className={styles.card}>
+      <h3 className={styles.title}>{game.title}</h3>
+      <span className={styles.platform}>{game.platform}</span>
     </div>
   );
 };

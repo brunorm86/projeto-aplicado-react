@@ -1,0 +1,16 @@
+.card {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.platform {
+  background-color: white;
+  border: 1px solid blueviolet;
+  border-radius: 100px;
+  padding: 0.5em;
+  color: blueviolet;
+  font-size: 0.5rem;
+}

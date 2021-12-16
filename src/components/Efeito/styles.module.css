@@ -30,3 +30,10 @@
 .postItem {
   margin: 0.25rem 0;
 }
+
+.gameGrid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
