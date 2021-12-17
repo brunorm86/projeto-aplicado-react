@@ -51,3 +51,9 @@
 .cardDescItem {
   margin: 1rem 0;
 }
+
+.pokePropertyItem {
+
+  display: inline-block;
+  margin: 0 0.2rem;
+}

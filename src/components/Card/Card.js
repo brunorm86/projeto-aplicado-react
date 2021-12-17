@@ -6,6 +6,13 @@ const COLOR_MAP = {
   grass: "#436147",
   rock: "#727272",
   water: "#80C5F8",
+  electric: "#F5E443",
+  ground: "#6C400D",
+  psychic: "#D3A9E7",
+  ice: "#006CBB",
+  flying: "#8B8B8B",
+  bug: "#15994A",
+  poison: "#765757",
 };
 
 export const Card = ({ pokemon }) => {
@@ -24,19 +31,25 @@ export const Card = ({ pokemon }) => {
       </div>
       <h2 className={styles["card__title"]}>{pokemon.name}</h2>
       <div className={styles.description}>
-        <CardDescriptionItem title="Tipo:" text={pokemon.type[0]} />
-        <CardDescriptionItem title="Habilidades:" text={pokemon.type[0]} />
-        <CardDescriptionItem title="Fraquezas:" text={pokemon.type[0]} />
+        <PokemonPropertiesItem title="Tipo:" list={pokemon.type} />
+        <PokemonPropertiesItem title="Habilidades:" list={pokemon.abilities} />
+        <PokemonPropertiesItem title="Fraquezas:" list={pokemon.weakness} />
       </div>
     </div>
   );
 };
 
-const CardDescriptionItem = ({ title, text }) => {
+const PokemonPropertiesItem = ({ title, list }) => {
+  console.log(list);
   return (
     <div className={styles.cardDescItem}>
       <span className={styles["card__spec-title"]}>{title}</span>
-      <span className={styles["card__spec-value"]}>{text}</span>
+      <div className={styles["card__spec-value"]}>
+        {list.map((property) => (
+          <span key={property} className={styles.pokePropertyItem} style={{ color: COLOR_MAP[property] }}>
+            {property
+            }</span>))}
+      </div>
     </div>
   );
 };
